@@ -1,5 +1,5 @@
 # Larouex Smart Kitchen OPCUA Server for Azure IoT Central Industrial IoT Scenarios
-This project containerizes the Larouex Smart Kitchen OPC-UA Server for demonstration of Industraial IoT Scenarios for Azure IoT Central.
+This project containerizes the Larouex Smart Kitchen OPC-UA Server for demonstration of Industrial IoT Scenarios for Azure IoT Central.
 
 ## Overview
 
