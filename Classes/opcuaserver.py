@@ -72,10 +72,13 @@ class OpcUaServer():
       # OPCUA Server Run
       try:
 
+        print("[OPCUASERVER]: Starting the OPCUA Server")
+
         async with self.opcua_server_instance:
           while True:
             await asyncio.sleep(self.config["ServerFrequencyInSeconds"])
             self.logger.info("[SERVER LOOP] STARTING:")
+            print("[OPCUASERVER]: SERVER LOOP Running the OPCUA Server")
 
             for device in self.map_telemetry["Devices"]:
               for interface in device["Interfaces"]:
@@ -91,8 +94,8 @@ class OpcUaServer():
                   else:
                     variable["RangeValueCurrent"] = 1
 
-                  print("int(variable[RangeValueCurrent]) %s" % int(variable["RangeValueCurrent"]))
-                  print("int(variable[RangeValueCount]) %s" % int(variable["RangeValueCount"]))
+                  self.logger.info("int(variable[RangeValueCurrent]) %s" % int(variable["RangeValueCurrent"]))
+                  self.logger.info("int(variable[RangeValueCount]) %s" % int(variable["RangeValueCount"]))
 
                   variable_node_instance = self.opcua_server_instance.get_node(variable["NodeId"])
                   await variable_node_instance.write_value(value)
@@ -118,6 +121,8 @@ class OpcUaServer():
 
       # OPCUA Server Setup
       try:
+
+        print("[OPCUASERVER]: Setting up the OPCUA Server")
 
         # configure the endpoint
         opc_url = self.config["ServerUrlPattern"].format(ip = self.config["IPAddress"], port = self.config["Port"])
@@ -150,6 +155,8 @@ class OpcUaServer():
       except Exception as ex:
         self.logger.error("[ERROR] %s" % ex)
         self.logger.error("[TERMINATING] We encountered an error in OPCUA Server Setup::setup()" )
+
+      print("[OPCUASERVER]: Completed setting up the OPCUA Server")
 
       return
 

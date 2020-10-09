@@ -9,8 +9,8 @@
   "NameSpace": "larouex-smart-kitchen",
   "DeviceInstanceCount": 10,
 	"CacheAddrSpaceFileName": "cache.opc",
-	"ServerFrequencyInSeconds": 3000,
-  "ClientFrequencyInSeconds": 3015,
+	"ServerFrequencyInSeconds": 30,
+  "ClientFrequencyInSeconds": 25,
   "TelemetryRings": [
     {"Ring0": 15},
     {"Ring1": 20},
