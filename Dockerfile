@@ -18,5 +18,7 @@ ADD . /app
 RUN useradd appuser && chown -R appuser /app
 USER appuser
 
+EXPOSE 4840
+
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 CMD ["python", "opcuaserver.py"]
